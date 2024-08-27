@@ -1,1 +1,45 @@
+#include <stdio.h>
+#include <string.h>
 
+#define MAX_PRODUTO 100
+#define MAX_RESPOSTA 10
+
+int main() {
+    char nomeProduto[MAX_PRODUTO];
+    int quantidade;
+    float precoUnitario;
+    float valorTotal;
+    float valorTotalDia = 0.0;
+    char resposta[MAX_RESPOSTA];
+
+    do {
+        printf("Digite o nome do produto: ");
+        fgets(nomeProduto, MAX_PRODUTO, stdin);
+
+        nomeProduto[strcspn(nomeProduto, "\n")] = '\0';
+
+        printf("Digite a quantidade vendida: ");
+        scanf("%d", &quantidade);
+
+        while (getchar() != '\n');
+
+        printf("Digite o preco unitario (Utilize o ponto para informar as casas decimais): ");
+        scanf("%f", &precoUnitario);
+
+        while (getchar() != '\n');
+
+        valorTotal = quantidade * precoUnitario;
+        printf("O valor total da venda do produto '%s' é: R$ %.2f\n", nomeProduto, valorTotal);
+
+        valorTotalDia += valorTotal;
+
+        printf("Deseja registrar outra venda? (sim/nao): ");
+        fgets(resposta, MAX_RESPOSTA, stdin);
+        resposta[strcspn(resposta, "\n")] = '\0';
+
+     } while (strcmp(resposta, "sim") == 0);
+
+    printf("O valor total arrecadado no dia é: R$ %.2f\n", valorTotalDia);
+
+    return 0;
+}
