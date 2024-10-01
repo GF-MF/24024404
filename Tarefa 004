@@ -1,0 +1,90 @@
+/* No item 1) da prova, a alternativa correta é a alternativa b) *\
+
+/* No item 2) da prova, a alternativa correta é a algernativa c) *\
+
+/* Item 3) *\
+#include <stdio.h>
+int main() {
+    int plano;
+    float valor;
+
+    printf("Escolha um plano de assinatura: ");
+    printf("1 - Plano Basico (R$ 29,90)\n");
+    printf("2 - Plano Padrao (R$ 49,90)\n");
+    printf("3 - Plano Premium (R$ 79,90)\n");
+    printf("Digite o número do plano escolhido: ");
+    scanf("%d", &plano);
+
+    switch (plano) {
+        case 1:
+            valor = 29.90;
+            printf("Voce escolheu o plano basico. Valor a ser pago: R$ %.2f\n", valor);
+            break;
+        case 2:
+            valor = 49.90;
+            printf("Voce escolheu o plano padrao. Valor a ser pago: R$ %.2f\n", valor);
+            break;
+        case 3:
+            valor = 79.90;
+            printf("Voce escolheu o plano premium. Valor a ser pago: R$ %.2f\n", valor);
+            break;
+        default:
+            printf("Opcao invalida, escolha outra opcao.\n");
+    }
+    return 0;
+}
+
+/* Item 4) *\
+#include <stdio.h>
+int main() {
+    double temperatura, umidade;
+
+    printf("insira a temperatura interna atual (em Celsius): ");
+    scanf("%lf", &temperatura);
+    printf("insira a umidade relativa do ar (em porcentagem): ");
+    scanf("%lf", &umidade);
+
+    if (temperatura < 18.0 || umidade > 70.0) {
+        printf("Aquecimento Ligado e Desumidificador Ativado\n");
+    } 
+    else if (temperatura >= 18.0 && temperatura <= 22.0 && umidade >= 30.0 && umidade <= 50.0) {
+        printf("Condições ideais - Sistema em modo de economia\n");
+    } 
+    else if (temperatura > 22.0 && umidade < 30.0) {
+        printf("Ar Condicionado Ligado e Umidificador Ativado\n");
+    } 
+    else {
+        printf("Verificar Sistema - Ajustes Manuais Necessários\n");
+    }
+
+/* Item 5) *\
+#include <stdio.h>
+int main() {
+    int posicao, pontos;
+
+    printf("Insira a posição do corredor na corrida: ");
+    scanf("%d", &posicao);
+
+    if (posicao == 1) {
+        pontos = 10;
+    } 
+    else if (posicao == 2) {
+        pontos = 8;
+    } 
+    else if (posicao == 3) {
+        pontos = 6;
+    } 
+    else if (posicao == 4) {
+        pontos = 4;
+    } 
+    else if (posicao == 5) {
+        pontos = 2;
+    } 
+    else {
+        pontos = 0;
+    }
+
+    printf("O corredor recebeu %d pontos.\n", pontos);
+
+    return 0;
+}
