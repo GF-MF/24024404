@@ -1,1 +1,506 @@
+1- Exercicios While e Do-while
+1. Controle de Temperatura
+#include <stdio.h>
+int main() {
+float temperatura;
+do {
+printf("Digite a temperatura atual: ");
+scanf("%f", &temperatura);
+if (temperatura < 20.0 || temperatura > 25.0) {
+printf("ALERTA: Temperatura fora da faixa segura (20°C - 25°C)!\n");
+} else {
+printf("Temperatura dentro da faixa segura.\n");
+}
+} while (temperatura < 20.0 || temperatura > 25.0);
+return 0;
+}
 
+
+
+2. Controle de Combustível
+#include <stdio.h>
+int main() {
+int combustivel;
+do {
+printf("Digite o nível de combustível (em %%): ");
+scanf("%d", &combustivel);
+if (combustivel < 15) {
+printf("ALERTA: Nível de combustível baixo! Por favor, recarregue.\n");
+} else {
+printf("Combustível suficiente.\n");
+}
+} while (combustivel < 100);
+printf("Tanque cheio. Programa encerrado.\n");
+return 0;
+}
+
+
+
+3. Contagem de Passos
+#include <stdio.h>
+int main() {
+int passos, totalPassos = 0;
+do {
+printf("Digite o número de passos dados: ");
+scanf("%d", &passos);
+totalPassos += passos;
+printf("Total de passos até agora: %d\n", totalPassos);
+if (totalPassos >= 10000) {
+printf("Parabéns! Você atingiu sua meta diária de 10.000 passos.\n");
+}
+} while (totalPassos < 10000);
+return 0;
+}
+
+
+
+4. Verificação de Depósito Mínimo
+#include <stdio.h>
+int main() {
+float deposito;
+do {
+printf("Digite o valor do depósito inicial: R$ ");
+scanf("%f", &deposito);
+if (deposito < 500.0) {
+printf("Depósito insuficiente. O valor mínimo é R$ 500,00.\n");
+}
+} while (deposito < 500.0);
+printf("Depósito válido! Conta aberta com sucesso.\n");
+return 0;
+}
+
+
+
+Desafio: Análise de Desempenho de Ações
+#include <stdio.h>
+#include <math.h>
+int main() {
+int dias;
+printf("Quantos dias deseja analisar? ");
+scanf("%d", &dias);
+float precos[dias], soma = 0, media, desvio = 0;
+for (int i = 0; i < dias; i++) {
+printf("Digite o preço da ação no dia %d: ", i + 1);
+scanf("%f", &precos[i]);
+soma += precos[i];
+}
+media = soma / dias;
+for (int i = 0; i < dias; i++) {
+desvio += pow(precos[i] - media, 2);
+}
+desvio = sqrt(desvio / dias);
+printf("Média: %.2f\n", media);
+printf("Desvio padrão: %.2f\n", desvio);
+if (desvio < 5.0) {
+printf("A ação é considerada estável.\n");
+} else {
+printf("A ação é considerada volátil.\n");
+}
+return 0;
+}
+
+
+
+2. Exercícios - Do-While
+1. Controle de Movimento de um Robô
+#include <stdio.h>
+ #include <string.h>
+ int main() {
+ char comando[10];
+ printf("Comandos disponíveis: frente, tras, esquerda, direita, sair\n");
+ do {
+ printf("Digite um comando: ");
+ scanf("%s", comando);
+ if (strcmp(comando, "frente") == 0) {
+ printf("Movendo para frente.\n");
+ } else if (strcmp(comando, "tras") == 0) {
+ printf("Movendo para tras.\n");
+} else if (strcmp(comando, "esquerda") == 0) {
+ printf("Movendo para a esquerda.\n");
+ } else if (strcmp(comando, "direita") == 0) {
+ printf("Movendo para a direita.\n");
+ } else if (strcmp(comando, "sair") != 0) {
+ printf("Comando inválido!\n");
+ }
+ } while (strcmp(comando, "sair") != 0);
+ printf("Programa encerrado.\n");
+ return 0;
+ }
+
+
+
+2. Leitura de Sensores de Distância
+#include <stdio.h>
+int main() {
+float distancia;
+do {
+printf("Digite a distância medida pelo sensor (cm): ");
+scanf("%f", &distancia);
+printf("Distância registrada: %.2f cm\n", distancia);
+} while (distancia >= 10.0);
+printf("Distância abaixo de 10 cm. Programa encerrado.\n");
+return 0;
+}
+
+
+
+3. Controle de Atuação do Robô
+#include <stdio.h>
+ int main() {
+int opcao;
+ do {
+ printf("Escolha uma ação:\n");
+ printf("1. Ligar lâmpada\n");
+ printf("2. Tocar som\n");
+ printf("3. Mover braço\n");
+ printf("4. Sair\n\n");
+ printf("Opção: ");
+ scanf("%d", &opcao);
+ switch (opcao) {
+ case 1:
+ printf("Lâmpada ligada.\n\n");
+ break;
+ case 2:
+ printf("Som tocado.\n\n");
+ break;
+ case 3:
+ printf("Braço movido.\n\n");
+ break;
+ case 4:
+ printf("Encerrando programa.\n\n");
+ break;
+ default:
+ printf("Opção inválida!\n\n");
+ }
+ } while (opcao != 4);
+return 0;
+ }
+
+
+
+4. Monitoramento de Bateria do Robô
+#include <stdio.h>
+int main() {
+int bateria;
+do {
+printf("Digite o nível da bateria (em %%): ");
+scanf("%d", &bateria);
+if (bateria < 20) {
+printf("Bateria baixa! Recarregue imediatamente.\n");
+} else {
+printf("Bateria suficiente.\n");
+}
+} while (bateria < 20);
+printf("Nível de bateria acima de 20%%. Programa encerrado.\n");
+return 0;
+}
+
+
+
+5. Simulação de Navegação Autônoma
+#include <stdio.h>
+#include <string.h>
+int main() {
+int x = 2, y = 2;
+char comando[10];
+printf("Comandos: cima, baixo, esquerda, direita, parar\n");
+do {
+printf("Posição atual: (%d, %d)\n", x, y);
+printf("Digite um comando: ");
+scanf("%s", comando);
+if (strcmp(comando, "cima") == 0 && y > 0) {
+y++;
+} else if (strcmp(comando, "baixo") == 0 && y < 4) {
+y--;
+} else if (strcmp(comando, "esquerda") == 0 && x > 0) {
+x--;
+} else if (strcmp(comando, "direita") == 0 && x < 4) {
+x++;
+} else if (strcmp(comando, "parar") != 0) {
+printf("Comando inválido ou movimento fora do grid!\n");
+}
+} while (strcmp(comando, "parar") != 0);
+printf("Programa encerrado.\n");
+return 0;
+}
+
+
+
+Desafio: Controle Completo de Robô
+#include <stdio.h>
+ #include <string.h>
+ #define GRID_SIZE 5
+ #include <locale.h>
+
+ void controleMovimento();
+ void leituraSensores();
+ void controleAtuacao();
+void monitoramentoBateria();
+ void navegacaoAutonoma();
+ int main() {
+     setlocale(LC_ALL, "Portuguese");
+ int opcao;
+ do {
+
+ printf("\n=== Controle Completo de Robô ===\n");
+ printf("1. Controle de Movimento\n");
+ printf("2. Leitura de Sensores de Distância\n");
+ printf("3. Controle de Atuação\n");
+ printf("4. Monitoramento de Bateria\n");
+ printf("5. Navegação Autônoma\n");
+ printf("6. Sair\n\n");
+ printf("Escolha uma opção: ");
+ scanf("%d", &opcao);
+
+ switch (opcao) {
+ case 1:
+ controleMovimento();
+ break;
+ case 2:
+ leituraSensores();
+ break;
+ case 3:
+ controleAtuacao();
+ break;
+case 4:
+ monitoramentoBateria();
+ break;
+ case 5:
+ navegacaoAutonoma();
+ break;
+ case 6:
+ printf("Encerrando o programa...\n");
+ break;
+ default:
+ printf("Opção inválida! Tente novamente.\n");
+ }
+ } while (opcao != 6);
+ return 0;
+ }
+
+ void controleMovimento() {
+ char comando[10];
+ printf("\nControle de Movimento\n");
+ printf("Comandos disponíveis: frente, tras, esquerda, direita, sair\n");
+ do {
+ printf("Digite um comando: ");
+ scanf("%s", comando);
+ if (strcmp(comando, "frente") == 0) {
+ printf("Robô movendo para frente.\n");
+ } else if (strcmp(comando, "tras") == 0) {
+printf("Robô movendo para tras.\n");
+ } else if (strcmp(comando, "esquerda") == 0) {
+ printf("Robô movendo para a esquerda.\n");
+ } else if (strcmp(comando, "direita") == 0) {
+ printf("Robô movendo para a direita.\n");
+ } else if (strcmp(comando, "sair") != 0) {
+ printf("Comando inválido!\n");
+ }
+ } while (strcmp(comando, "sair") != 0);
+ }
+
+ void leituraSensores() {
+ float distancia;
+ printf("\nLeitura de Sensores de Distância\n");
+ do {
+ printf("Digite a distância medida pelo sensor (em cm): ");
+ scanf("%f", &distancia);
+ printf("Distância registrada: %.2f cm\n", distancia);
+ } while (distancia >= 10.0);
+ printf("Sensor detectou uma distância menor que 10 cm. Encerrando leitura.\n");
+ }
+
+ void controleAtuacao() {
+ int acao;
+ printf("\nControle de Atuação do Robô\n");
+ do {
+printf("Escolha uma ação:\n");
+ printf("1. Ligar lâmpada\n");
+ printf("2. Tocar som\n");
+ printf("3. Mover braço\n");
+ printf("4. Sair\n\n");
+ printf("Opção: ");
+ scanf("%d", &acao);
+ switch (acao) {
+ case 1:
+ printf("Lâmpada ligada.\n\n");
+ break;
+ case 2:
+ printf("Som tocado.\n\n");
+ break;
+ case 3:
+ printf("Braço movido.\n\n");
+ break;
+ case 4:
+ printf("Saindo do Controle de Atuação.\n\n");
+ break;
+ default:
+ printf("Opção inválida! Tente novamente.\n\n");
+ }
+ } while (acao != 4);
+ }
+
+void monitoramentoBateria() {
+ int nivelBateria;
+ printf("\nMonitoramento de Bateria\n");
+ do {
+ printf("Digite o nível da bateria (em %%): ");
+ scanf("%d", &nivelBateria);
+ if (nivelBateria < 20) {
+ printf("Bateria baixa! Por favor, recarregue.\n");
+ } else {
+ printf("Bateria suficiente.\n");
+ }
+ } while (nivelBateria < 20);
+ printf("Bateria acima de 20%%. Monitoramento concluído.\n");
+ }
+
+ void navegacaoAutonoma() {
+ int x = 2, y = 2;
+ char comando[10];
+ printf("\nNavegação Autônoma em Grid de 5x5\n");
+ printf("Comandos: cima, baixo, esquerda, direita, parar\n");
+ do {
+ printf("Posição atual: (%d, %d)\n", x, y);
+ printf("Digite um comando: ");
+ scanf("%s", comando);
+ if (strcmp(comando, "cima") == 0 && y > 0) {
+ y++;
+} else if (strcmp(comando, "baixo") == 0 && y < GRID_SIZE- 1) {
+ y--;
+ } else if (strcmp(comando, "esquerda") == 0 && x > 0) {
+ x--;
+ } else if (strcmp(comando, "direita") == 0 && x < GRID_SIZE- 1) {
+ x++;
+ } else if (strcmp(comando, "parar") != 0) {
+ printf("Comando inválido ou movimento fora do grid!\n");
+ }
+ } while (strcmp(comando, "parar") != 0);
+ printf("Navegação encerrada.\n");
+ }
+
+
+
+3. Exercícios Práticos Usando Arduino
+
+1. Declaração de um vetor cameraData com capacidade para 10 valores
+int cameraData[10];
+
+
+
+2. Função do código cameraData[3] = analogRead(A1);
+Este código armazena o valor lido do pino analógico A1 no quarto elemento do vetor
+cameraData. Ele é útil para coletar dados de sensores, como temperatura, luz, etc.
+
+
+
+3. Inicialização de um vetor de floats temperaturas
+float temperaturas[] = {25.5, 26.0, 24.8, 27.3, 26.5};
+
+
+
+4. Função do código for (int i = 0; i < 4; i++) { Serial.println(ledPins[i]); }
+Este código imprime os valores do vetor ledPins no monitor serial, elemento por elemento.
+Ele é utilizado para depuração ou monitoramento.
+
+
+
+5. Estrutura completa para executar o código na IDE Arduino
+void setup() {
+Serial.begin(9600); // Inicia a comunicação serial
+int ledPins[] = {2, 3, 4, 5};
+for (int i = 0; i < 4; i++) {
+Serial.println(ledPins[i]);
+}
+}
+void loop() {
+// Código vazio, pois a lógica está no setup
+}
+
+
+
+6. Usar a função random() para preencher o vetor randomValues
+void setup() {
+Serial.begin(9600);
+int randomValues[5];
+for (int i = 0; i < 5; i++) {
+randomValues[i] = random(0, 101); // Gera valores entre 0 e 100
+Serial.println(randomValues[i]);
+}
+}
+void loop() {
+// Código vazio
+}
+
+
+
+7. Implementação do código com break
+for (int i = 0; i < tamanhoVetor; i++) {
+if (sensorReadings[i] == 150) {
+break; // Interrompe o loop quando encontra o valor 150
+}
+}
+
+
+
+8. Função da instrução sizeof(sensorData) / sizeof(sensorData[0])
+Essa instrução calcula o número de elementos do vetor sensorData. O sizeof(sensorData)
+retorna o tamanho total do vetor em bytes, e o sizeof(sensorData[0]) retorna o tamanho do
+primeiro elemento. A divisão fornece a quantidade de elementos.
+
+
+
+4. Problemas
+A) Interpretação da primeira linha da matriz ambientData
+A primeira linha representa temperaturas registradas nos cinco momentos de
+monitoramento, com valores em graus Celsius: 22, 25, 23, 21, 24.
+
+B) Média da umidade do solo no segundo local
+#include <stdio.h>
+int main() {
+int umidade[] = {45, 38, 42, 40, 37};
+int soma = 0;
+for (int i = 0; i < 5; i++) {
+soma += umidade[i];
+}
+float media = soma / 5.0;
+printf("Média da umidade do solo: %.2f%%\n", media);
+return 0;
+}
+
+C) Momento com maior concentração de CO₂
+#include <stdio.h>
+int main() {
+int co2[] = {400, 380, 420, 410, 390};
+int max = co2[0], momento = 0;
+for (int i = 1; i < 5; i++) {
+if (co2[i] > max) {
+max = co2[i];
+momento = i;
+}
+}
+printf("Maior concentração de CO₂: %d ppm no momento %d\n", max, momento + 1);
+return 0;
+}
+
+
+
+D) Código para calcular a média de temperatura
+#include <stdio.h>
+int main() {
+int ambientData[3][5] = {
+{22, 25, 23, 21, 24},
+{45, 38, 42, 40, 37},
+{400, 380, 420, 410, 390}
+};
+int totalLocais = 3, totalLeituras = 5;
+int somaTemperaturas = 0;
+for (int i = 0; i < totalLocais; i++) {
+for (int j = 0; j < totalLeituras; j++) {
+somaTemperaturas += ambientData[i][j];
+}
+}
+float media = somaTemperaturas / (float)(totalLocais * totalLeituras);
+printf("Média das temperaturas: %.2f\n", media);
+return 0;
+}
